@@ -4,6 +4,7 @@ calcularNumeros.addEventListener("click", calcularNumerosF);
 calcularPotencia.addEventListener("click", calcularPotenciaF);
 calcularRaizQuadrada.addEventListener("click", calcularRaizQuadradaF);
 gerarTabuada.addEventListener("click", gerarTabuadaF);
+sortearMegaSena.addEventListener("click", sortearMegaSenaF);
 
 function mostrarMensagemF(){
     window.alert("Olá mundo!");
@@ -71,4 +72,20 @@ function gerarTabuadaF(){
     }
 
     fieldset_tabuada.appendChild(tabelaTabuada);
+}
+
+function sortearMegaSenaF(){
+    var numerosSorteados = new Array();
+    var i = 0;
+    while(i < 6){
+        var numeroAtual = Math.ceil(Math.random() * 60);
+        if(numerosSorteados.indexOf(numeroAtual) == -1){
+            numerosSorteados.push(numeroAtual);
+            i++;
+        }
+    }
+
+    window.alert("Os números sorteados foram: " + numerosSorteados.sort(function(a, b){
+        return a - b;
+    }));
 }
